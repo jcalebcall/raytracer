@@ -8,9 +8,8 @@
 #include <sstream>
 #include <vector>
 
-// Constants
-const unsigned IMAGEHEIGHT = 4;
-const unsigned IMAGEWIDTH = 4;
+#define M_PI 3.141592653589793
+#define INFINITY 1e8
 
 // Vector class
 template<typename T>
@@ -58,6 +57,33 @@ public:
 	T phongConstant;
 	Sphere() {};
 
+	// compute a ray-sphere intersection using the geometric solution
+	bool intersect(const Vec3<T> &rayorig, const Vec3<T> &raydir, T *t) const
+	{
+		T B = 2 * (raydir.x*rayorig.x - raydir.x*center.x + raydir.y*rayorig.y - raydir.y*center.y - raydir.z*rayorig.z - raydir.z*center.z);
+		T C = pow(rayorig, 2) - 2*rayorig.x*center.x + pow(center.x, 2) + pow(rayorig.y, 2) - 2*rayorig.y*center.y
+			+ pow(center.y, 2) + pow(rayorig.z, 2) - 2*rayorig.z*center.z + pow(center.z, 2);
+
+		// Compute discriminant D = B^2 -4C
+		T D = pow(B, 2) - 4 * C;
+
+		if (D < 0)
+			return false;
+
+		// Compute smaller root first
+		T t0 = (-B - sqrt(D)) / 2;
+		if (t0 <= 0)
+		{
+			// Calculate larger root
+			T t1 = (-B + sqrt(D)) / 2;
+			if (t1 <= 0)
+				return false;
+			*t = t1;
+		}
+		*t = t0;
+		return true;
+	}
+
 };
 
 // Polygon class
@@ -85,10 +111,6 @@ struct CameraAndColorInfo
 	Vec3<float> lightColor;
 	Vec3<float> ambientLight;
 	Vec3<float> backgroundColor;
-} cameraAndColorInfo;
-
-// Global
-std::vector<Sphere<float> > spheres;
-std::vector<Triangle<float> > triangles;
+};
 
 #endif
