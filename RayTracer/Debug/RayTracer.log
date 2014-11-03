@@ -1,8 +1,48 @@
-﻿Build started 10/29/2014 10:33:57 AM.
+﻿Build started 11/2/2014 8:28:31 PM.
      1>Project "C:\Users\Caleb\Documents\Visual Studio 2012\Projects\RayTracer\RayTracer\RayTracer.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt raytracer.cpp
          raytracer.cpp
+     1>c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.cpp(209): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+                 c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.cpp(263) : see reference to function template instantiation 'void render<float>(const CameraAndColorInfo &,const std::vector<_Ty> &,const std::vector<Triangle<T> *> &)' being compiled
+                 with
+                 [
+                     _Ty=Sphere<float> *,
+                     T=float
+                 ]
+     1>c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.cpp(167): warning C4305: 'initializing' : truncation from 'double' to 'float'
+                 c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.cpp(225) : see reference to function template instantiation 'Vec3<T> trace<float>(const Vec3<T> &,const Vec3<T> &,const std::vector<_Ty> &,const std::vector<Triangle<T> *> &,const int &,const CameraAndColorInfo &)' being compiled
+                 with
+                 [
+                     T=float,
+                     _Ty=Sphere<float> *
+                 ]
+                 c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.cpp(263) : see reference to function template instantiation 'void render<float>(const CameraAndColorInfo &,const std::vector<_Ty> &,const std::vector<Triangle<T> *> &)' being compiled
+                 with
+                 [
+                     _Ty=Sphere<float> *,
+                     T=float
+                 ]
+     1>c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.cpp(189): warning C4244: 'argument' : conversion from 'int' to 'const float', possible loss of data
+     1>c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.cpp(196): warning C4244: 'argument' : conversion from 'int' to 'const float', possible loss of data
+     1>c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.h(131): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+                 c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.h(106) : while compiling class template member function 'bool Triangle<T>::intersect(const Vec3<T> &,const Vec3<T> &,T *)'
+                 with
+                 [
+                     T=float
+                 ]
+                 c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.cpp(146) : see reference to function template instantiation 'bool Triangle<T>::intersect(const Vec3<T> &,const Vec3<T> &,T *)' being compiled
+                 with
+                 [
+                     T=float
+                 ]
+                 c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.cpp(260) : see reference to class template instantiation 'Triangle<T>' being compiled
+                 with
+                 [
+                     T=float
+                 ]
+     1>c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.h(134): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\caleb\documents\visual studio 2012\projects\raytracer\raytracer\raytracer.h(138): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Caleb\Documents\Visual Studio 2012\Projects\RayTracer\Debug\RayTracer.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Caleb\Documents\Visual Studio 2012\Projects\RayTracer\Debug\RayTracer.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Caleb\Documents\Visual Studio 2012\Projects\RayTracer\Debug\RayTracer.lib" /MACHINE:X86 Debug\raytracer.obj
          RayTracer.vcxproj -> C:\Users\Caleb\Documents\Visual Studio 2012\Projects\RayTracer\Debug\RayTracer.exe
@@ -10,4 +50,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.66
+Time Elapsed 00:00:01.04
